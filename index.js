@@ -1,11 +1,11 @@
-var express = require("express");
-var cors = require("cors");
+let express = require("express");
+let cors = require("cors");
 
 const app = express();
 const bodyParser = require("body-parser");
 
-var PropertiesReader = require("properties-reader");
-var properties = PropertiesReader("server.properties");
+let PropertiesReader = require("properties-reader");
+let properties = PropertiesReader("server.properties");
 
 const port = properties.get("server.port.number");
 const serverName = properties.get("server.port.name");
@@ -28,6 +28,8 @@ app.use(
     })
 );
 app.use(bodyParser.json());
+
+app.use(require('./routes/api/userController'));
 
 app.listen(port, serverName, function() {
     console.log("Server is running on " + port + " port");

@@ -1,6 +1,6 @@
 const log4js = require("log4js");
-var PropertiesReader = require("properties-reader");
-var properties = PropertiesReader("server.properties");
+let PropertiesReader = require("properties-reader");
+let properties = PropertiesReader("server.properties");
 
 // log4j details
 log4js.configure({
